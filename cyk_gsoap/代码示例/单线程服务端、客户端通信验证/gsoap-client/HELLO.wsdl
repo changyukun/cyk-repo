@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name="Service"
+ targetNamespace="http://tempuri.org/HELLO.xsd/Service.wsdl"
+ xmlns:tns="http://tempuri.org/HELLO.xsd/Service.wsdl"
+ xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+ xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+ xmlns:HELLO="http://tempuri.org/HELLO.xsd"
+ xmlns:ns="http://tempuri.org/ns.xsd"
+ xmlns:SOAP="http://schemas.xmlsoap.org/wsdl/soap/"
+ xmlns:MIME="http://schemas.xmlsoap.org/wsdl/mime/"
+ xmlns:DIME="http://schemas.xmlsoap.org/ws/2002/04/dime/wsdl/"
+ xmlns:WSDL="http://schemas.xmlsoap.org/wsdl/"
+ xmlns="http://schemas.xmlsoap.org/wsdl/">
+
+<types>
+
+ <schema targetNamespace="http://tempuri.org/HELLO.xsd"
+  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+  xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:HELLO="http://tempuri.org/HELLO.xsd"
+  xmlns:ns="http://tempuri.org/ns.xsd"
+  xmlns="http://www.w3.org/2001/XMLSchema"
+  elementFormDefault="unqualified"
+  attributeFormDefault="unqualified">
+  <import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+  <!-- operation request element -->
+  <element name="hello">
+   <complexType>
+    <sequence>
+    </sequence>
+   </complexType>
+  </element>
+  <!-- operation response element -->
+  <element name="helloResponse">
+   <complexType>
+    <sequence>
+     <element name="p" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/><!-- HELLO__hello::p -->
+    </sequence>
+   </complexType>
+  </element>
+ </schema>
+
+ <schema targetNamespace="http://tempuri.org/ns.xsd"
+  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+  xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:HELLO="http://tempuri.org/HELLO.xsd"
+  xmlns:ns="http://tempuri.org/ns.xsd"
+  xmlns="http://www.w3.org/2001/XMLSchema"
+  elementFormDefault="unqualified"
+  attributeFormDefault="unqualified">
+  <import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+ </schema>
+
+</types>
+
+<message name="helloRequest">
+ <part name="parameters" element="HELLO:hello"/><!-- HELLO__hello::HELLO__hello -->
+</message>
+
+<message name="helloResponse">
+ <part name="parameters" element="HELLO:helloResponse"/>
+</message>
+
+<portType name="ServicePortType">
+ <operation name="hello">
+  <documentation>Service definition of function HELLO__hello</documentation>
+  <input message="tns:helloRequest"/>
+  <output message="tns:helloResponse"/>
+ </operation>
+</portType>
+
+<binding name="Service" type="tns:ServicePortType">
+ <SOAP:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+ <operation name="hello">
+  <SOAP:operation soapAction=""/>
+  <input>
+     <SOAP:body parts="parameters" use="literal"/>
+  </input>
+  <output>
+     <SOAP:body parts="parameters" use="literal"/>
+  </output>
+ </operation>
+</binding>
+
+<service name="Service">
+ <documentation>gSOAP 2.8.9 generated service definition</documentation>
+ <port name="Service" binding="tns:Service">
+  <SOAP:address location="http://localhost:80"/>
+ </port>
+</service>
+
+</definitions>

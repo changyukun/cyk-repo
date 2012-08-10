@@ -1,0 +1,9 @@
+
+1、生成相应的文件
+   命令：soapcpp2 -c -S -L -x server.h
+
+2、编写server.c文件
+   已经写好，可以直接使用
+
+3、修改makefile进行编译
+   根据需求修改

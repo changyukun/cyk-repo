@@ -1,0 +1,14 @@
+
+1、拷贝CykService.wsdl到当前目录
+   命令：cp ../cyk_gsoap_server/CykService.wsdl ./
+
+2、生成client.h文件
+   命令：wsdl2h -c -o client.h CykService.wsdl
+
+3、生成相应的文件
+   命令：soapcpp2 -c -C -L -x client.h
+
+4、编写client.c文件
+   已经写好，可直接使用
+
+5、修改makefile进行编译
