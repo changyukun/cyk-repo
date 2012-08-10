@@ -1,0 +1,43 @@
+##################################################################
+#####	File Name   : 
+#####	Description :  
+#####	    Author   :  changyukun
+##################################################################
+
+
+
+HUALU_CONFIG_CFLAG := 
+HUALU_CONFIG_CLIB_DIR :=
+HUALU_CONFIG_CINC_DIR := 
+HUALU_CONFIG_CLIB :=  -lapp -lcomm -ldriver
+
+
+###### 添加模块选项
+export PRJ_DEBUG := 0
+
+
+
+
+###### 根据选项值确定是否添加相应的选项
+ifeq "$(PRJ_DEBUG)" "1"
+HUALU_CONFIG_CFLAG += 
+HUALU_CONFIG_CLIB_DIR +=
+HUALU_CONFIG_CINC_DIR +=
+HUALU_CONFIG_CLIB 	+= 
+endif
+
+
+
+
+
+
+
+
+
+
+export HUALU_CONFIG_CFLAG
+export HUALU_CONFIG_CLIB_DIR
+export HUALU_CONFIG_CINC_DIR
+export HUALU_CONFIG_CLIB
+
+
